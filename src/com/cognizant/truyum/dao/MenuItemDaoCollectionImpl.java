@@ -48,6 +48,7 @@ public class MenuItemDaoCollectionImpl implements MenuItemDao {
 		for (int i = 0; i < menuItemList.size(); i++) {
 			if (menuItemList.get(i).getId() == menuItem.getId()) {
 				menuItemList.set(i, menuItem);
+				break;
 			}
 		}
 
