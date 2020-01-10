@@ -20,35 +20,38 @@ import com.cognizant.truyum.model.MenuItem;
 @WebServlet({ "/ShowMenuItemListCustomerServlet", "/ShowMenuItemListCustomer" })
 public class ShowMenuItemListCustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ShowMenuItemListCustomerServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ShowMenuItemListCustomerServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
 			MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
-			List<MenuItem> menuItemList=menuItemDao.getMenuItemListCustomer();
-			request.setAttribute("menuItemList",menuItemList);
-			RequestDispatcher rd=request.getRequestDispatcher("menu-item-list-customer.jsp");
-			rd.forward(request,response);
-		}catch(Exception ex)
-		{
+			List<MenuItem> menuItemList = menuItemDao.getMenuItemListCustomer();
+			request.setAttribute("menuItemList", menuItemList);
+			RequestDispatcher rd = request.getRequestDispatcher("menu-item-list-customer.jsp");
+			rd.forward(request, response);
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

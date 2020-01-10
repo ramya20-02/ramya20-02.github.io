@@ -19,19 +19,21 @@ import com.cognizant.truyum.model.MenuItem;
 @WebServlet({ "/ShowEditMenuItemServlet", "/ShowEditMenuItem" })
 public class ShowEditMenuItemServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ShowEditMenuItemServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public ShowEditMenuItemServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
 			MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
 			int id = Integer.parseInt(request.getParameter("menuItemId"));
@@ -39,16 +41,17 @@ public class ShowEditMenuItemServlet extends HttpServlet {
 			request.setAttribute("menuItem", menuItem);
 			RequestDispatcher rd = request.getRequestDispatcher("edit-menu-item.jsp");
 			rd.forward(request, response);
-		} 
-		catch (Exception ex) {
+		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
-		}
+	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
