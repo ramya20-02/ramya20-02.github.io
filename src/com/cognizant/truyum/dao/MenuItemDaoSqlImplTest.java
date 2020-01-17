@@ -7,7 +7,7 @@ import java.util.List;
 import com.cognizant.truyum.model.MenuItem;
 import com.cognizant.truyum.util.DateUtil;
 
-public class MenuItemDaoCollectionImplTest {
+public class MenuItemDaoSqlImplTest {
 
 	public static void main(String[] args) {
 		try {
@@ -25,8 +25,8 @@ public class MenuItemDaoCollectionImplTest {
 		}
 	}
 
-	public static void testGetMenuItemListAdmin() throws ParseException, SQLException{
-		MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
+	public static void testGetMenuItemListAdmin() throws ParseException, SQLException {
+		MenuItemDao menuItemDao = new MenuItemDaoSqlImpl();
 		List<MenuItem> menuItemList = menuItemDao.getMenuItemListAdmin();
 
 		for (MenuItem x : menuItemList) {
@@ -34,20 +34,22 @@ public class MenuItemDaoCollectionImplTest {
 		}
 	}
 
-	public static void testGetMenuItemListCustomer() throws ParseException {
-		MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
-		menuItemDao.getMenuItemListCustomer();
+	public static void testGetMenuItemListCustomer() throws ParseException, SQLException  {
+		MenuItemDao menuItemDao = new MenuItemDaoSqlImpl();
+		
 		List<MenuItem> menuItemList = menuItemDao.getMenuItemListCustomer();
-
 		for (MenuItem x : menuItemList) {
 			System.out.println(x);
 		}
 	}
 
-	public static void testModifyMenuItem() throws ParseException {
-		MenuItem m = new MenuItem(5, "Biryani", 255.00f, true, DateUtil.convertToDate("18/12/2022"), "MainCourse",
+	public static void testModifyMenuItem() throws ParseException, SQLException  {
+		MenuItem m = new MenuItem(1, "Chicken Manchuria",100.00f,true, DateUtil.convertToDate("20/12/2022"), "Starters",
 				true);
-		MenuItemDao menuItemDao = new MenuItemDaoCollectionImpl();
+		MenuItemDao menuItemDao = new MenuItemDaoSqlImpl();
 		menuItemDao.modifyMenuItem(m);
 	}
-}
+
+	}
+
+

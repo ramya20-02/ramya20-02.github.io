@@ -4,18 +4,18 @@ import java.util.List;
 
 import com.cognizant.truyum.model.MenuItem;
 
-public class CartDaoCollectionImplTest {
+public class CartDaoSqlImplTest {
 
 	public static void main(String[] args) throws CartEmptyException  {
 		testGetAllCartItems();
 		testAddCartItem();
-	   testGetAllCartItems();
+	    testGetAllCartItems();
 		testRemoveCartItem();
-		testGetAllCartItems();
+	    testGetAllCartItems();
 	}
 
 	public static void testGetAllCartItems() throws CartEmptyException {
-		CartDao cartDao = new CartDaoCollectionImpl();
+		CartDao cartDao = new CartDaoSqlImpl();
 		try {
 		List<MenuItem> menuItemListCustomer = cartDao.getAllCartItems(1);
 		System.out.println("User List All Cart Items");
@@ -31,7 +31,7 @@ public class CartDaoCollectionImplTest {
 	
 
 	public static void testAddCartItem() throws CartEmptyException {
-		CartDao cartDao = new CartDaoCollectionImpl();
+		CartDao cartDao = new CartDaoSqlImpl();
 		cartDao.addCartItem(1, 2l);
 		cartDao.addCartItem(1, 5l);
 
@@ -43,7 +43,7 @@ public class CartDaoCollectionImplTest {
 	}
 
 	public static void testRemoveCartItem() throws CartEmptyException {
-		CartDao cartDao = new CartDaoCollectionImpl();
+		CartDao cartDao = new CartDaoSqlImpl();
 		System.out.println("Item List for Customer after Removal");
 		try {
 			cartDao.removeCartItem(1, 2l);
